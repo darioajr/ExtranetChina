@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Relatorios";
+}
+
+<div class="jumbotron">
+    <h1>Relatorios</h1>
+    <p class="lead">Sistema de Relatorios pela internet</p>
+    <p><a href="http://www.hering.com.br" class="btn btn-primary btn-large">Leia mais &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Relatorio Ficha Técnica</h2>
+        <p>Selecione o Artigo:</br>
+            <select id="lista_artigo">
+                <option value="64277">64277</option>
+                <option value="63312">63312</option>
+            </select>
+        </p>
+        <p>
+            <button id="botao_artigo" class="btn btn-default">Visualizar via Hering</button>
+            <button id="botao_artigo2" class="btn btn-default">Visualizar via Nuvem</button>
+        </p>
+    </div>
+
+</div>
+
+<div id="divLoading" style="margin: 0px; padding: 0px; position: fixed; right: 0px;
+    top: 0px; width: 100%; height: 100%; background-color: #666666; z-index: 30001;
+    opacity: .8; filter: alpha(opacity=70);display:none">
+    <p style="position: absolute; top: 30%; left: 45%; color: White;">
+        Aguarde...  <img src="/extranet_china/Content/images/ajax-loader.gif">
+    </p>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("botao_artigo").onclick = function () {
+  
+        document.getElementById("divLoading").style.display = 'block';
+
+        var valor = lista_artigo.options[lista_artigo.selectedIndex].value;
+      
+        //location.href = "/ViewPDF/GetDocument?P_ARBRFART_ID=" + valor + "&P_CDIDIOMA=3&P_IMPRES_DETALHE=S";
+        location.href = "/extranet_china/ViewPDF?P_ARBRFART_ID=" + valor + "&P_CDIDIOMA=3&P_IMPRES_DETALHE=S";
+
+    };        
+    //window.open("/ViewPDF?P_ARBRFART_ID=" + valor + "&P_CDIDIOMA=3&P_IMPRES_DETALHE=S");
+
+
+    document.getElementById("botao_artigo2").onclick = function () {
+
+        document.getElementById("divLoading").style.display = 'block';
+
+        var valor = lista_artigo.options[lista_artigo.selectedIndex].value;
+        //location.href = "/ViewPDFAmazon/GetDocument?P_ARBRFART_ID=" + valor + "&P_CDIDIOMA=3&P_IMPRES_DETALHE=S";
+        location.href = "/extranet_china/ViewPDFAmazon/GetDocument?P_ARBRFART_ID=" + valor + "&P_CDIDIOMA=3&P_IMPRES_DETALHE=S";
+
+    };
+</script>

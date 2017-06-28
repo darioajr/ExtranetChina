@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title = "Ficha Fornecedor";
+}
+
+<h2>Ficha Fornecedor</h2>
+
+<div id="divLoading" style="margin: 0px; padding: 0px; position: fixed; right: 0px;
+    top: 0px; width: 100%; height: 100%; background-color: #666666; z-index: 30001;
+    opacity: .8; filter: alpha(opacity=70);display:none">
+    <p style="position: absolute; top: 30%; left: 45%; color: White;">
+        Aguarde...  <img src="/extranet_china/Content/images/ajax-loader.gif">
+    </p>
+</div>
+
+<div id="pdf">
+    <embed width="100%" height="90%" type="application/pdf" src="/extranet_china/ViewPDF/GetDocument?P_ARBRFART_ID=@ViewBag.P_ARBRFART_ID&P_CDIDIOMA=3&P_IMPRES_DETALHE=S"/>
+</div>
+
+
+<script type="text/javascript">
+       // document.getElementById("divLoading").style.display = 'block';
+</script>
